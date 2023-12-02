@@ -18,7 +18,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { removeAddress } from "../features/authentication/addressSlice";
-import productCollection from "../data/MOCK_DATA03.json";
 
 export default function Navbar() {
   const userData = useSelector(selectUser);
