@@ -6,7 +6,7 @@ export default function Home() {
       <section className="heroku container-lg d-flex justify-content-center align-items-center flex-column mb-3">
         <div className="heroku-img mb-2">
           <img
-            src="./src/assets/images/dAAfqNsY.jpeg"
+            src="https://firebasestorage.googleapis.com/v0/b/omsaigroceries-app.appspot.com/o/products-images%2Fkalash.jpeg?alt=media&token=0c8fab43-8a69-4f30-8bfe-0f53ab4ab460"
             alt="heroku-img"
             className="heroku-img"
           />
