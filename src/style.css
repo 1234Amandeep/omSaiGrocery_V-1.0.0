@@ -1,0 +1,223 @@
+.spacing {
+  padding-top: 1000px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+hr.class-1 {
+  border-top: 1px solid black;
+  margin: 0;
+}
+
+section.heroku {
+  min-height: 85vh;
+}
+
+.heroku-para {
+  max-width: 450px;
+  text-align: center;
+}
+
+.heroku-img {
+  width: 77px;
+  height: 77px;
+}
+
+.heroku-title {
+  max-width: 350px;
+  text-align: center;
+  letter-spacing: 0.05rem;
+}
+
+.footer-trivial-info {
+  max-width: 850px;
+}
+
+.footer-trivial-info > :hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.brand-logo {
+  letter-spacing: 1.5px;
+}
+
+.about-para {
+  max-width: 860px;
+}
+
+.about-content {
+  margin-top: 100px;
+}
+
+.about-title {
+  letter-spacing: 3px;
+}
+
+.searchbar {
+  margin-top: 100px;
+  max-width: 800px;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+}
+
+.traceback-btn {
+  min-width: 500px;
+}
+
+.card-container {
+  max-height: 200px;
+}
+
+.card:hover {
+  cursor: pointer;
+  border: 1px solid #555;
+}
+
+.product-price {
+  letter-spacing: 2px;
+}
+
+.product-img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.testing {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 150px;
+  margin-right: 150px;
+  row-gap: 1rem;
+}
+
+.product-pricings {
+  column-gap: 20px;
+}
+
+.product-details-container {
+  column-gap: 100px;
+  min-height: 85vh;
+}
+
+.product-img {
+  max-width: 480px;
+  max-height: 480px;
+}
+
+.product-img:hover {
+  cursor: pointer;
+}
+
+.product-infos {
+  margin-top: 20px;
+}
+
+.product-title {
+  letter-spacing: 2px;
+}
+
+.discount-percent {
+  background-color: #369d00;
+  color: #fff;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 0 5px;
+}
+
+.discounted-price {
+  font-size: 30px;
+}
+
+.btn-container {
+  margin-top: 180px;
+}
+
+.qnt-btn {
+  border-radius: 15px;
+}
+
+.login-text,
+.sign-text {
+  letter-spacing: 1.5px;
+}
+
+.login-text:hover,
+.sign-text:hover {
+  cursor: pointer;
+}
+
+.address-form {
+  max-width: 700px;
+}
+
+.checkout-title {
+  letter-spacing: 1.25px;
+}
+
+.checkout-main-container {
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 80%);
+  cursor: pointer;
+}
+
+.del-address-head {
+  letter-spacing: 5px;
+}
+
+.order-summary-main-container {
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 80%);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order-summary-guidlines {
+  text-align: justify;
+}
+
+.order-summary-table {
+  font-size: 17px;
+}
+
+.table-rows-price {
+  letter-spacing: 1.25px;
+  font-size: 16px;
+}
+
+.checkout-btn-container {
+  text-decoration: none;
+}
+.checkout-btn {
+  letter-spacing: 2px;
+}
+
+.cart-outer-container {
+  min-width: 800px;
+
+  border-radius: 8px;
+  background-color: hsl(60, 65%, 80%);
+}
+
+.cart-heading {
+  letter-spacing: 1.25px;
+}
+
+.cart-product-card {
+  height: fit-content;
+  border: 1px solid black;
+}
+
+.product-infos-container {
+  flex-grow: 1;
+}
+
+.product-info > p {
+  font-size: 14px;
+}

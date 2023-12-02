@@ -1,0 +1,12 @@
+Dream different features you want in the project. Dont worry about feasibility.
+Identify resources to learn for getting started.
+Learn from resources. Keep it short. Prefer offical.
+Think of a set of tasks to help you get started with project.
+
+While tasks are not finished 
+    Identify task for current cycle of building
+    Identify resources to learn for achieving the task.
+    Learn from resources (faith base).
+
+    Make an attempt at building
+

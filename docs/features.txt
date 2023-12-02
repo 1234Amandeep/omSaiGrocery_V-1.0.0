@@ -1,0 +1,7 @@
+store should have atleast about 100-200 products.
+User should be able to search his wanted product from all the products.
+  Their should be fiter buttons :
+    Namkeen, Sweets, Atta, Nuts
+  Their should be sorting buttons :
+    Low-to-high, High-to-low
+User should see an infinte scroll effect while he is going through my shop.
