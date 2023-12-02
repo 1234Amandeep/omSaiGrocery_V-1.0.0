@@ -21,7 +21,6 @@ import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 import Shop from "./pages/Shop";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-import productCollection from "./data/MOCK_DATA03.json";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "./features/products/productsSlice";
 import AddressForm from "./pages/AddressForm";
