@@ -221,3 +221,10 @@ section.heroku {
 .product-info > p {
   font-size: 14px;
 }
+
+.search-result-card {
+  color: black;
+  text-decoration: none;
+  margin-inline: auto;
+  width: min(90%, 60rem);
+}

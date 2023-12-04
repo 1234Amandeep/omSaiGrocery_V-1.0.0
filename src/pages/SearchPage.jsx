@@ -10,8 +10,14 @@ export default function SearchPage() {
   const [productShowcase, setProductShowcase] = useState([]);
   const [searchReq, setSearchReq] = useState("");
   const [categories, setCategories] = useState([]);
+  const [sortList, setSortList] = useState([
+    "show all",
+    "low to high",
+    "high to low",
+  ]);
 
   const showAll = () => {
+    console.log("inside show all");
     if (products.length != 0) {
       setProductShowcase(products);
     }
@@ -33,9 +39,12 @@ export default function SearchPage() {
   };
 
   const handleFilter = (e) => {
-    const arr = products.filter(
-      (product) => product.data.category == e.target.value
-    );
+    const arr = products.filter((product) => {
+      console.log(
+        `e.target.value: ${e.target.value}, product.data.category: ${product.data.category}`
+      );
+      return product.data.category == e.target.value;
+    });
     setProductShowcase(arr);
   };
   if (products.length == 0) {
@@ -111,58 +120,91 @@ export default function SearchPage() {
               Search
             </button>
           </form>
-          {/* </div> */}
-          <div className="btns-container">
-            <div className="btns-container-filter mb-2">
-              {/* filter btns */}
-              {categories.length > 0 &&
-                categories.map((category, index) => (
-                  <button
-                    value={category}
-                    key={index}
-                    className="btn-dark btn me-2 ms-2 mb-3"
-                    onClick={(e) => handleFilter(e)}
-                  >
-                    {category}
-                  </button>
-                ))}
-            </div>
-            <div className="btns-container-sort d-flex justify-content-center">
-              {/* sort btns */}
-              <button
-                className="btn-dark btn ms-2 me-2 mb-2"
-                type="button"
-                onClick={showAll}
-              >
-                show all
-              </button>
-              <button
-                className="btn btn-dark ms-2 me-2 mb-2"
-                value="low-to-high"
-                type="button"
-                onClick={(e) => handleSort(e)}
-              >
-                low to high
-              </button>
-              <button
-                className="btn btn-dark ms-2 me-2 mb-2"
-                value="high-to-low"
-                type="button"
-                onClick={(e) => handleSort(e)}
-              >
-                high to low
-              </button>
-            </div>
-            {/* filter btns ends here */}
 
+          <div className="btns-container d-flex gap-2">
+            {/* filter btns */}
+            <div className="dropdown filter-btn">
+              <button
+                className="btn btn-dark dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                category
+              </button>
+              <ul className="dropdown-menu">
+                {categories.length > 0 &&
+                  categories.map((category, index) => (
+                    <li key={index}>
+                      <button
+                        value={category}
+                        type="button"
+                        onClick={(e) => handleFilter(e)}
+                        className="dropdown-item"
+                      >
+                        {category}
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+
+            {/* sort btns */}
+            <div className="dropdown sort-btn">
+              <button
+                className="btn btn-dark dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                sort
+              </button>
+              <ul className="dropdown-menu">
+                <li>
+                  <button
+                    className="dropdown-item"
+                    type="button"
+                    onClick={showAll}
+                  >
+                    show all
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="dropdown-item"
+                    value="low-to-high"
+                    type="button"
+                    onClick={(e) => handleSort(e)}
+                  >
+                    low to high
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="dropdown-item"
+                    value="high-to-low"
+                    type="button"
+                    onClick={(e) => handleSort(e)}
+                  >
+                    high to low
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* filter btns ends here */}
+          </div>
+
+          {/* Search results container */}
+          <div className="search-results-container">
             {productShowcase.length != 0 &&
               productShowcase.map((product, index) => (
                 <Link
                   to={`/shop/${product.id}`}
-                  style={{ textDecoration: "none", color: "black" }}
                   key={index}
+                  className="search-result-card"
                 >
-                  <div className="mt-5 cart-product-card d-flex flex-column  border shadow p-3 mb-5 bg-body rounded">
+                  <div className="search-result-card mt-5 cart-product-card d-flex flex-column  border shadow p-3 mb-5 bg-body rounded">
                     <div className="product-details d-flex">
                       <img
                         src={product.data.img}
