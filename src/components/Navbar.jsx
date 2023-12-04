@@ -53,27 +53,41 @@ export default function Navbar() {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to={"/"}>
-                  Home
+                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    Home
+                  </span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"about"}>
-                  About Us
+                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    {" "}
+                    About Us
+                  </span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"search"}>
-                  Search
+                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    {" "}
+                    Search
+                  </span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"shop"}>
-                  Shop
+                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    {" "}
+                    Shop
+                  </span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"cart"}>
-                  Cart
+                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    {" "}
+                    Cart
+                  </span>
                 </Link>
               </li>
               <li className="nav-item ps-3">
@@ -83,12 +97,19 @@ export default function Navbar() {
                     className="btn btn-dark"
                     onClick={handleSignOut}
                   >
-                    Sign out
+                    <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                      Sign out
+                    </span>
                   </button>
                 ) : (
                   <Link to={"login"}>
                     <button type="button" className="btn btn-dark">
-                      Login
+                      <span
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                      >
+                        Login
+                      </span>
                     </button>
                   </Link>
                 )}
