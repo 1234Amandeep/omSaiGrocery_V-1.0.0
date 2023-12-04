@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -18,9 +19,9 @@ export default function Home() {
           We are online service provider of Pooja & Disposable items with best
           price and quality at Rajnagar Extension Ghaziabad.
         </div>
-        <button type="button" className="btn btn-dark btn-sm">
+        <Link role="button" className="btn btn-dark btn-sm" to="/shop">
           <span className="fw-semibold">Shop Now</span>
-        </button>
+        </Link>
       </section>
     </>
   );
