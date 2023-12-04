@@ -33,14 +33,14 @@ export default function Navbar() {
       <nav className="container-lg navbar navbar-expand-lg bg-light ">
         <div className="container-fluid align-items-center">
           <Link className="navbar-brand brand-logo fw-bolder" to={"/"}>
-            OM POOJA & DISPOSABLES
+            OM SAI.in
           </Link>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
@@ -48,7 +48,7 @@ export default function Navbar() {
           </button>
           <div
             className="collapse navbar-collapse justify-content-end"
-            id="navbarNavDropdown"
+            id="navbarNav"
           >
             <ul className="navbar-nav">
               <li className="nav-item">
