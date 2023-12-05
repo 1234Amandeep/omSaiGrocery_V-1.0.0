@@ -2,7 +2,10 @@ Understand when to fetch the data.
 In the search feature :
   1.Just in the end make your search bar operatables in after typing 3 characters only. [att -> should give kuttu atta, sabudana atta; basically you don't need to type whole word before the searching happens.] {see how original omsai.in's search bar works.}
 
-add dynamic category buttons in search component. <<>>
+add dynamic category buttons in search component. 
+
+Make search page responsive:
+  Make desktop or larger screen size capable layout for the card. <<>>
 
 *** Do this When you have revised backend.
 Add stripe as payment gateway [stripe react.js official docs, youtube cart + stripe using react node express].

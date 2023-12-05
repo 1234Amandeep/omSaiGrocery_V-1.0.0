@@ -90,7 +90,7 @@ export default function Navbar() {
                   </span>
                 </Link>
               </li>
-              <li className="nav-item mt-3">
+              <li className="nav-item mt-lg-0 ms-lg-3 mt-sm-3">
                 {userData.user ? (
                   <button
                     type="button"

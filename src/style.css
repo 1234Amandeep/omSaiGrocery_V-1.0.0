@@ -228,3 +228,44 @@ section.heroku {
   margin-inline: auto;
   width: min(90%, 60rem);
 }
+
+.search-results-container {
+  margin-inline: auto;
+  width: min(90%, 60rem);
+}
+
+.search-card-container {
+  text-decoration: none;
+  color: #000;
+}
+
+.result-card-title {
+  font-size: 1rem;
+  letter-spacing: 1.25px;
+  line-height: 1.5rem;
+}
+
+.search-input {
+  border: 0.25px solid rgb(216, 212, 212);
+}
+
+@media (min-width: 36rem) {
+  .result-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .search-results-container {
+    max-width: 48rem;
+  }
+
+  .result-card-container > img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .result-card-title {
+    font-weight: bold;
+  }
+}

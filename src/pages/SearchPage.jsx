@@ -104,7 +104,9 @@ export default function SearchPage() {
               required
               type="text"
               id="search"
-              className="form-control"
+              className="form-control search-input
+               shadow-sm bg-body rounded
+              "
               placeholder="Search for items..."
               aria-label="Search for items..."
               aria-describedby="basic-addon2"
@@ -196,8 +198,55 @@ export default function SearchPage() {
           </div>
 
           {/* Search results container */}
-          <div className="search-results-container">
+          <div className="search-results-container mt-5 mb-4">
             {productShowcase.length != 0 &&
+              productShowcase.map((product, index) => (
+                <>
+                  <Link
+                    to={`/shop/${product.id}`}
+                    className="search-card-container mb-5"
+                    key={index}
+                  >
+                    <div
+                      className="card result-card-container
+                       border shadow p-3 mb-5 bg-body rounded
+                      "
+                      style={{
+                        marginInline: "auto",
+                        width: "min(90%, 60rem)",
+                        marginBlock: "1.75rem",
+                      }}
+                    >
+                      <img
+                        src={product.data.img}
+                        className="card-img-top result-card-img"
+                        alt={product.data.title}
+                      />
+                      <div className="card-body result-card-body">
+                        <h5 className="card-title result-card-title">
+                          {product.data.title}
+                        </h5>
+                        <p className="card-text result-card-pricing">
+                          <span className="me-2 fw-semibold">
+                            $ {product.data.discountedPrice}
+                          </span>
+                          <span className="text-success">60% OFF</span>
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </>
+              ))}
+          </div>
+          {/* Show either "Sorry we couldn't find the item you searched for" or the
+          list of items which have matched the search...
+          <div className="traceback-btn-container fixed-bottom d-flex justify-content-center mb-2">
+            <TracebackBtn />
+          </div> */}
+
+          {/* *** */}
+          {/* 
+          {productShowcase.length != 0 &&
               productShowcase.map((product, index) => (
                 <Link
                   to={`/shop/${product.id}`}
@@ -237,12 +286,7 @@ export default function SearchPage() {
                   </div>
                 </Link>
               ))}
-          </div>
-          {/* Show either "Sorry we couldn't find the item you searched for" or the
-          list of items which have matched the search...
-          <div className="traceback-btn-container fixed-bottom d-flex justify-content-center mb-2">
-            <TracebackBtn />
-          </div> */}
+        */}
         </div>
       </section>
     </>
