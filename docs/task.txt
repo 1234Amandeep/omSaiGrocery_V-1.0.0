@@ -4,8 +4,8 @@ In the search feature :
 
 add dynamic category buttons in search component. 
 
-Make search page responsive:
-  Make desktop or larger screen size capable layout for the card. <<>>
+Make shoplist page responsive:
+  Make grid layout again from scratch. <<>>
 
 *** Do this When you have revised backend.
 Add stripe as payment gateway [stripe react.js official docs, youtube cart + stripe using react node express].

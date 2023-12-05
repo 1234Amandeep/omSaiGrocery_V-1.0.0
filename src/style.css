@@ -83,8 +83,13 @@ section.heroku {
 }
 
 .product-img {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+}
+
+.product-img {
+  display: block;
+  max-width: 100%;
 }
 
 .testing {
@@ -92,7 +97,8 @@ section.heroku {
   margin-bottom: 100px;
   margin-left: 150px;
   margin-right: 150px;
-  row-gap: 1rem;
+  row-gap: 4rem;
+  column-gap: 0rem;
 }
 
 .product-pricings {

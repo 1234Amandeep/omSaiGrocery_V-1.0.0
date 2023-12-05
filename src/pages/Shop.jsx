@@ -18,7 +18,7 @@ export default function Shop() {
               <u>Products List</u>
             </p>
             <div className="container text-center">
-              <div className="row row-cols-3 testing">
+              <div className="row gx-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 testing">
                 {products.map((product, index) => (
                   <ProductCard
                     key={index}

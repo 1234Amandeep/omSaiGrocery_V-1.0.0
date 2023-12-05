@@ -7,15 +7,25 @@ export default function ProductCard({ id, title, img, price }) {
       {!img ? (
         <Loader />
       ) : (
-        <article className="container-fluid" key={id}>
-          <div className=" container-lg product-card-container d-flex justify-content-center align-items-center">
+        <article className="col mb-sm-3 container-fluid" key={id}>
+          <div
+            className="p-0 container-lg product-card-container d-flex justify-content-center align-items-center
+           shadow   bg-body rounded
+          "
+          >
             <Link to={id} style={{ textDecoration: "none", color: "#000" }}>
-              <div className="card" style={{ width: "250px", height: "430px" }}>
+              <div
+                className="card"
+                style={{
+                  minWidth: "250px",
+                  minHeight: "430px",
+                  border: "none",
+                }}
+              >
                 <img
                   src={img}
                   className="card-img-top product-img"
                   alt={title}
-                  style={{ height: "250px" }}
                 />
                 <div className="card-body">
                   <small className="card-title">{title}</small>
