@@ -276,7 +276,7 @@ section.heroku {
   gap: 1rem;
 }
 
-@media (min-width: 24rem) {
+@media (min-width: 30rem) {
   .product-list-container {
     grid-template-columns: 1fr 1fr;
     max-width: 996px;
