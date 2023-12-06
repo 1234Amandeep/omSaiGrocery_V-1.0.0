@@ -51,45 +51,31 @@ export default function Navbar() {
             id="navbarNav"
           >
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to={"/"}>
-                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    Home
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"about"}>
-                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    {" "}
-                    About Us
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"search"}>
-                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    {" "}
-                    Search
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"shop"}>
-                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    {" "}
-                    Shop
-                  </span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"cart"}>
-                  <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    {" "}
-                    Cart
-                  </span>
-                </Link>
-              </li>
+              <Link className="nav-link" aria-current="page" to={"/"}>
+                <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <li className="nav-item">Home</li>
+                </span>
+              </Link>
+              <Link className="nav-link" to={"about"}>
+                <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <li className="nav-item">About Us</li>
+                </span>
+              </Link>
+              <Link className="nav-link" to={"search"}>
+                <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <li className="nav-item">Search</li>
+                </span>
+              </Link>
+              <Link className="nav-link" to={"shop"}>
+                <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <li className="nav-item">Shop</li>
+                </span>
+              </Link>
+              <Link className="nav-link" to={"cart"}>
+                <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <li className="nav-item">Cart</li>
+                </span>
+              </Link>
               <li className="nav-item mt-lg-0 ms-lg-3 mt-sm-3">
                 {userData.user ? (
                   <button
