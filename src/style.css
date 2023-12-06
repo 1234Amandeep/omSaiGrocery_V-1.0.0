@@ -83,11 +83,6 @@ section.heroku {
 }
 
 .product-img {
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
-}
-
-.product-img {
   display: block;
   max-width: 100%;
 }
@@ -267,11 +262,30 @@ section.heroku {
   }
 
   .result-card-container > img {
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
   }
 
   .result-card-title {
     font-weight: bold;
+  }
+}
+
+.product-list-container {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 24rem) {
+  .product-list-container {
+    grid-template-columns: 1fr 1fr;
+    max-width: 996px;
+  }
+}
+
+@media (min-width: 36rem) {
+  .product-list-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 996px;
   }
 }
