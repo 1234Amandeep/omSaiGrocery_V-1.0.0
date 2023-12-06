@@ -136,7 +136,8 @@ section.heroku {
 }
 
 .btn-container {
-  margin-top: 180px;
+  margin-top: 1.5rem;
+  margin-left: 0;
 }
 
 .qnt-btn {
@@ -271,6 +272,11 @@ section.heroku {
   }
 }
 
+.product-img {
+  display: block;
+  width: 100%;
+}
+
 .product-list-container {
   display: grid;
   gap: 1rem;
@@ -287,5 +293,9 @@ section.heroku {
   .product-list-container {
     grid-template-columns: 1fr 1fr 1fr;
     max-width: 996px;
+  }
+
+  .btn-container {
+    margin-top: 180px;
   }
 }

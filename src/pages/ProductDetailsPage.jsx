@@ -154,11 +154,12 @@ export default function ProductDetailsPage() {
   return (
     <>
       <article className="container-fluid product-details-page">
-        <div className="container-lg product-details-container d-flex mt-5 justify-content-start mb-5">
+        {/* justify-content-start d-flex */}
+        <div className="container-lg product-details-container d-md-flex  mt-5  mb-5">
           <img
             src={product.data.img}
             alt={product.data.img}
-            className="product-img"
+            className="product-img mb-3"
           />
 
           <div className="product-infos d-flex flex-column">
@@ -181,7 +182,7 @@ export default function ProductDetailsPage() {
                 % OFF
               </small>
             </div>
-            <div className="order-misc-details mt-4">
+            <div className="order-misc-details mt-3">
               <small className="">hurray!!! Free Delivery</small>
               <div className="qnt-btn-container mt-3 d-flex align-items-center">
                 <div className="quantity-feature-container">
@@ -211,7 +212,7 @@ export default function ProductDetailsPage() {
                   </span>
                 </div>
               </div>
-              <div className="btn-container d-flex justify-content-around">
+              <div className="btn-container d-flex justify-content-start gap-4">
                 <button className="btn btn-outline-dark add-to-cart">
                   Add to Cart
                 </button>
