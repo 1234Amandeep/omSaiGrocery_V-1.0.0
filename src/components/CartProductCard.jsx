@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProducts } from "../features/products/productsSlice";
 import Loader from "./Loader";
+import { Link } from "react-router-dom";
 import {
   clearCart,
   selectCart,
@@ -78,31 +79,26 @@ export default function CartProductCard({ item }) {
     }
   }, [qnt]);
 
-  const { img, title, actualPrice, discountedPrice } = product.data;
+  let { img, title, actualPrice, discountedPrice } = product.data;
+
   return (
     <>
-      <div className="mt-5 cart-product-card d-flex flex-column  border shadow p-3 mb-5 bg-body rounded">
-        <div className="product-details d-flex">
+      <div className=" cart-product-card p-2 d-flex flex-column  border shadow  bg-body rounded">
+        <div className="product-details d-flex gap-3">
           <img
             src={img}
             alt={title}
             style={{ maxWidth: "150px", maxHeight: "150px" }}
           />
-          <div className="product-infos-container d-flex ms-4 justify-content-between">
+          <div className="product-infos-container d-flex  justify-content-start">
             <div className="product-info d-flex flex-column justify-content-evenly mt-2">
-              <p className="product-title fw-semibold me-5">{title}</p>
-              <p className="product-seller lead">
-                Sold by <span className="fw-semibold">Aashir khan</span>
-              </p>
-              <p className="product-left-stocks lead text-danger fw-bold">
-                Only 2 left in stock
-              </p>
-            </div>
-            <div className="product-pricing">
-              <p className="discounted-price mb-0">
-                <sup>&#8377;</sup> {discountedPrice}
-              </p>
-              <small className="fs-6 discount-percentage mt-0">60 % OFF</small>
+              <p className="product-title fw-semibold ">{title}</p>
+
+              <div className="product-pricing">
+                <p className="discounted-price mb-0 fw-semibold">
+                  &#8377; {discountedPrice}
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -132,6 +132,10 @@ function App() {
           element: <SearchPage />,
         },
         {
+          path: "cart",
+          element: <Cart />,
+        },
+        {
           path: "login",
           element: <Login />,
         },
@@ -156,10 +160,6 @@ function App() {
           element: <Checkout />,
         },
       ],
-    },
-    {
-      path: "cart",
-      element: <Cart />,
     },
   ]);
 

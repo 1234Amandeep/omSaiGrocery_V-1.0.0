@@ -4,8 +4,9 @@ In the search feature :
 
 add dynamic category buttons in search component. 
 
-Make details page responsive:
-  Make it stacked layout. <<>>
+Make cart responsive:
+  Create cart card from scratch. <<>>
+  
 
 *** Do this When you have revised backend.
 Add stripe as payment gateway [stripe react.js official docs, youtube cart + stripe using react node express].
