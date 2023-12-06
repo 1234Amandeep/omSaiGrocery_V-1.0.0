@@ -1,4 +1,5 @@
 import React, { useEffect, useState, forceUpdate } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeUser, selectUser } from "../features/authentication/userSlice";
@@ -22,6 +23,35 @@ import { removeAddress } from "../features/authentication/addressSlice";
 export default function Navbar() {
   const userData = useSelector(selectUser);
   const dispatch = useDispatch();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  });
+
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    // closing navlist
+    handleResize();
+    if (isMobile) {
+      const navList = document.getElementById("navbarNav");
+
+      if (navList.classList.contains("show")) {
+        navList.classList.remove("show");
+      }
+    }
+  }, [pathname]);
 
   const handleSignOut = async () => {
     dispatch(removeUser());
@@ -47,7 +77,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse justify-content-end"
+            className={`collapse navbar-collapse justify-content-end`}
             id="navbarNav"
           >
             <ul className="navbar-nav">
@@ -76,7 +106,7 @@ export default function Navbar() {
                   <li className="nav-item">Cart</li>
                 </span>
               </Link>
-              <li className="nav-item mt-lg-0 ms-lg-3 mt-sm-3">
+              <li className="nav-item mt-lg-0 ms-lg-3 mt-3">
                 {userData.user ? (
                   <button
                     type="button"
