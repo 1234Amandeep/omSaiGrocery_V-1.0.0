@@ -102,7 +102,7 @@ section.heroku {
 
 .product-details-container {
   column-gap: 100px;
-  min-height: 85vh;
+  /* max-height: 85vh; */
 }
 
 .product-img {

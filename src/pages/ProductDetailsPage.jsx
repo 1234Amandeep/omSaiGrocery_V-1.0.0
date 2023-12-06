@@ -155,7 +155,7 @@ export default function ProductDetailsPage() {
     <>
       <article className="container-fluid product-details-page">
         {/* justify-content-start d-flex */}
-        <div className="container-lg product-details-container d-md-flex  mt-5  mb-5">
+        <div className="container-lg product-details-container d-md-flex  mt-5  mb-5 ">
           <img
             src={product.data.img}
             alt={product.data.img}
