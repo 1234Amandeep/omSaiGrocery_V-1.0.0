@@ -112,19 +112,12 @@ export default function Navbar() {
                     className="btn btn-dark"
                     onClick={handleSignOut}
                   >
-                    <span data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                      Sign out
-                    </span>
+                    Sign out
                   </button>
                 ) : (
                   <Link to={"login"}>
                     <button type="button" className="btn btn-dark">
-                      <span
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                      >
-                        Login
-                      </span>
+                      Login
                     </button>
                   </Link>
                 )}

@@ -42,7 +42,7 @@ export const useLogin = () => {
             navigate("/form-address");
             navigate(0);
           } else {
-            navigate("/checkout");
+            navigate("/");
             navigate(0);
           }
         })
