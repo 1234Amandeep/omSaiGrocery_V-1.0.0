@@ -111,6 +111,7 @@ export default function ProductDetailsPage() {
 
               let isExists = idExists(id);
               if (isExists) {
+                // if product already exists inside cart
                 for (let i = 0; i < items.length; i++) {
                   if (id == items[i].product.id) {
                     console.log("Product already exists in cart: ");
@@ -160,18 +161,6 @@ export default function ProductDetailsPage() {
                   items,
                 }).then(() => {});
               }
-
-              // Testing ends here!
-
-              // updateDoc(doc(db, "cart", cartId), {
-              //   items: [
-              //     ...items,
-              //     {
-              //       product,
-              //       quantity,
-              //     },
-              //   ],
-              // }).then(() => {});
             }
           });
         }
@@ -261,5 +250,3 @@ export default function ProductDetailsPage() {
     </>
   );
 }
-
-// ***

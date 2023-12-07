@@ -348,3 +348,7 @@ section.heroku {
   margin-inline: auto;
   width: min(90%, 36rem);
 }
+
+/* .navbarlist > * {
+  justify-content: end;
+} */
