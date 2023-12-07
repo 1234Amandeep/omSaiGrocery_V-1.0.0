@@ -66,7 +66,6 @@ export default function ProductDetailsPage() {
         " quantity: ",
         quantity
       );
-      dispatch(addToCart({ product, quantity }));
 
       getCountFromServer(collection(db, "cart")).then((c) => {
         let count = c.data().count;
@@ -84,6 +83,7 @@ export default function ProductDetailsPage() {
           }).then((docRef) => {
             console.log("doc added to cart! ", docRef.id);
             dispatch(setCartId(docRef.id));
+            dispatch(addToCart({ product, quantity }));
           });
         } else {
           // adding another item inside cart collection.
@@ -109,9 +109,9 @@ export default function ProductDetailsPage() {
                 return result;
               };
 
-              for (let i = 0; i < items.length; i++) {
-                let isExists = idExists(id);
-                if (isExists) {
+              let isExists = idExists(id);
+              if (isExists) {
+                for (let i = 0; i < items.length; i++) {
                   if (id == items[i].product.id) {
                     console.log("Product already exists in cart: ");
 
@@ -140,24 +140,25 @@ export default function ProductDetailsPage() {
                     }).then(() => {});
                     break;
                   }
-                } else {
-                  items = [
-                    ...items,
-                    {
-                      product,
-                      quantity,
-                    },
-                  ];
-                  console.log(
-                    "inside else's handlereq, items before updating db: ",
-                    items
-                  );
-                  console.log("adding new product to cart");
-                  updateDoc(doc(db, "cart", cartId), {
-                    items,
-                  }).then(() => {});
-                  break;
                 }
+              } else {
+                items = [
+                  ...items,
+                  {
+                    product,
+                    quantity,
+                  },
+                ];
+                console.log(
+                  "inside else's handlereq, items before updating db: ",
+                  items
+                );
+                console.log("adding new product to cart");
+                dispatch(addToCart({ product, quantity }));
+
+                updateDoc(doc(db, "cart", cartId), {
+                  items,
+                }).then(() => {});
               }
 
               // Testing ends here!
