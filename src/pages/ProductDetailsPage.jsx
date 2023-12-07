@@ -44,7 +44,7 @@ export default function ProductDetailsPage() {
   const handlePurchaseReq = () => {
     if (!user) {
       navigate("/login");
-    } else if (user && !address) {
+    } else if (!address) {
       navigate("/form-address");
     } else {
       // getDoc(doc(db, "cart", cartId)).then((docSnap) => {
@@ -60,7 +60,12 @@ export default function ProductDetailsPage() {
       //     });
       //   }
       // });
-
+      console.log(
+        "inside handlereq's else, before dispatching add to cart product: ",
+        product,
+        " quantity: ",
+        quantity
+      );
       dispatch(addToCart({ product, quantity }));
 
       getCountFromServer(collection(db, "cart")).then((c) => {
@@ -86,36 +91,55 @@ export default function ProductDetailsPage() {
           getDoc(doc(db, "cart", cartId)).then((docSnap) => {
             if (docSnap.exists()) {
               let { items } = docSnap.data();
+              let ids = items.map((item) => {
+                return item.product.id;
+              });
+
+              console.log("ids: ", ids);
+              const idExists = (id) => {
+                let result = false;
+
+                for (let i = 0; i < ids.length; i++) {
+                  let currentId = ids[i];
+                  if (id == currentId) {
+                    result = true;
+                    break;
+                  }
+                }
+                return result;
+              };
 
               for (let i = 0; i < items.length; i++) {
-                if (id == items[i].product.id) {
-                  console.log("Product already exists in cart: ");
+                let isExists = idExists(id);
+                if (isExists) {
+                  if (id == items[i].product.id) {
+                    console.log("Product already exists in cart: ");
 
-                  let addOnQnt = quantity;
-                  let existingQnt = items[i].quantity;
+                    let addOnQnt = quantity;
+                    let existingQnt = items[i].quantity;
 
-                  let itemDiff = {
-                    ...items[i],
-                    quantity: addOnQnt + existingQnt,
-                  };
-                  console.log("item  if already exits: ", itemDiff);
+                    let itemDiff = {
+                      ...items[i],
+                      quantity: addOnQnt + existingQnt,
+                    };
+                    console.log("item  if already exits: ", itemDiff);
 
-                  console.log("before, items.length: ", items.length);
-                  items = items.map((item) => {
-                    if (id == item.product.id) {
-                      return itemDiff;
-                    }
+                    console.log("before, items.length: ", items.length);
+                    items = items.map((item) => {
+                      if (id == item.product.id) {
+                        return itemDiff;
+                      }
 
-                    return item;
-                  });
-                  console.log("after, items.length: ", items.length);
+                      return item;
+                    });
+                    console.log("after, items.length: ", items.length);
 
-                  dispatch(addNewQnt(items));
-                  updateDoc(doc(db, "cart", cartId), {
-                    items,
-                  }).then(() => {});
-
-                  break;
+                    dispatch(addNewQnt(items));
+                    updateDoc(doc(db, "cart", cartId), {
+                      items,
+                    }).then(() => {});
+                    break;
+                  }
                 } else {
                   items = [
                     ...items,
@@ -124,10 +148,15 @@ export default function ProductDetailsPage() {
                       quantity,
                     },
                   ];
+                  console.log(
+                    "inside else's handlereq, items before updating db: ",
+                    items
+                  );
                   console.log("adding new product to cart");
                   updateDoc(doc(db, "cart", cartId), {
                     items,
                   }).then(() => {});
+                  break;
                 }
               }
 
@@ -231,3 +260,5 @@ export default function ProductDetailsPage() {
     </>
   );
 }
+
+// ***

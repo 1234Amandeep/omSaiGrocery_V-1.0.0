@@ -328,10 +328,8 @@ section.heroku {
 }
 
 .cart-card-title {
-  /* font-size: 1.2rem; */
   letter-spacing: 1.25px;
   line-height: 1.5rem;
-  /* font-weight: bold; */
 }
 
 #cart-card-discountPrice {
@@ -345,19 +343,6 @@ section.heroku {
   border-radius: 8px;
   background-color: hsl(60, 65%, 80%);
 }
-
-.cart-list-container {
-  /* margin-inline: auto;
-  width: min(90%, 48rem);
-  border-radius: 8px; */
-  /* background-color: hsl(60, 65%, 80%); */
-}
-
-/* .cart-cart-img-container {
-  width: 150px;
-  height: 150px;
-}
-*/
 
 .cart-product-card {
   margin-inline: auto;

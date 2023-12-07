@@ -33,6 +33,9 @@ const cartSlice = createSlice({
     },
     addToCart: (state, action) => {
       const data = action.payload;
+
+      console.log("inside cartslice, data: ", data);
+
       state.cart.push(data);
       window.localStorage.setItem("cart", JSON.stringify(state.cart));
     },

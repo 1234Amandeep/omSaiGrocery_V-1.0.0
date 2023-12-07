@@ -9,6 +9,7 @@ const cartIdSlice = createSlice({
   initialState,
   reducers: {
     setCartId: (state, action) => {
+      console.log("inside setCartIdSlice, action.payload: ", action.payload);
       state.cartId = action.payload;
     },
   },

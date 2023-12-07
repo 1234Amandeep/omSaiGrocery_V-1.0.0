@@ -4,8 +4,8 @@ In the search feature :
 
 add dynamic category buttons in search component. 
 
-Make cart responsive:
-  Create cart card from scratch. <<>>
+solve the navbar's flicker issue:
+  It is caused when I was trying to make navbar close automatically when the route changes. <<>>
   
 
 *** Do this When you have revised backend.
