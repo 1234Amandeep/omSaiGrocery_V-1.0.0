@@ -1,17 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartProductCard from "../components/CartProductCard";
 import { useSelector } from "react-redux";
 import { selectOrder } from "../features/purchaseOrder/orderSlice";
 import Loader from "../components/Loader";
-import { selectCart } from "../features/purchaseOrder/cartSlice";
+import { selectCart, setCart } from "../features/purchaseOrder/cartSlice";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
+import { selectCartId, setCartId } from "../features/purchaseOrder/cartIdSlice";
 
 export default function Cart() {
   const { cart } = useSelector(selectCart);
+  const { cartId } = useSelector(selectCartId);
+  const navigate = useNavigate();
 
   // console.log("inside cart,");
 
   // console.log(cart[0].product);
+
+  const handleCheckout = () => {
+    let items = [];
+    setCart({ items });
+    // empty db cart
+    deleteDoc(doc(db, "carts", cartId)).then(() => {
+      setCartId("");
+
+      navigate("/checkout");
+    });
+
+    console.log("handlecheckout");
+  };
 
   return (
     <>
@@ -41,11 +59,12 @@ export default function Cart() {
               </button>
             </Link>
           ) : (
-            <Link to={"/checkout"}>
-              <button className="mb-5 btn  btn-outline-dark">
-                Proceed to checkout
-              </button>
-            </Link>
+            <button
+              onClick={handleCheckout}
+              className="mb-5 btn  btn-outline-dark"
+            >
+              Proceed to checkout
+            </button>
           )}
         </div>
       </div>

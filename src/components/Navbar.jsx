@@ -110,9 +110,9 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"cart"}>
+                <a className="nav-link" href="/cart">
                   Cart
-                </Link>
+                </a>
               </li>
               <li className="nav-item mt-lg-0 ms-lg-3 mt-3">
                 {userData.user ? (

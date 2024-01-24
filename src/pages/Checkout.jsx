@@ -44,13 +44,15 @@ export default function Checkout() {
           <p className="fs-4 fw-semibold text-center checkout-title mt-5 text-decoration-underline">
             Checkout
           </p>
-          <div className="checkout-main-container pt-3 ps-5 pe-5 pb-3 border d-flex justify-content-around mt-4  shadow p-3 mb-5 bg-body rounded">
-            <div className="del-address-head fw-bolder">Delivery address :</div>
-            <div className="del-address-content d-flex flex-column">
+          <div className="checkout-main-container pt-3 ps-5 pe-5 pb-3 border d-md-flex  justify-content-around mt-4 ms-lg-5 me-lg-5  shadow p-3 mb-5 bg-body rounded">
+            {/* <p className="del-address-head fw-bolder">Delivery address :</p> */}
+            <p className="fs-5 fw-semibold ">Delivery Address :</p>
+
+            <div className="del-address-content d-flex  flex-column">
               <span className="user-name font-monospace">
                 {user.contact.displayName}{" "}
               </span>
-              <div className="user-address">
+              <div className="user-address ">
                 <div className="house-address">
                   <small className="block">{address.Block}, </small>{" "}
                   <small className="flat-no">{address.flatNo}</small>
@@ -70,7 +72,7 @@ export default function Checkout() {
             </div>
           </div>
           <div className=" order-summary-main-container pt-4 ps-5 pe-5 pb-4 border    mt-4  shadow p-3 mb-5 bg-body rounded d-flex flex-column">
-            <p className="fs-4 fw-semibold text-center">Order summary</p>
+            <p className="fs-4 fw-semibold text-center">Order summary :</p>
             <small className="lh-sm  mt-2 fw-light order-summary-guidlines">
               Choose a payment method to continue checking out. You will still
               have a chance to review and edit your order before it is final.
