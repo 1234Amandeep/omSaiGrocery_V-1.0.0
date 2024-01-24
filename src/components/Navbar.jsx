@@ -1,5 +1,5 @@
 import React, { useEffect, useState, forceUpdate } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeUser, selectUser } from "../features/authentication/userSlice";
@@ -19,13 +19,18 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { removeAddress } from "../features/authentication/addressSlice";
+import { selectCart, setCart } from "../features/purchaseOrder/cartSlice";
+import { selectCartId, setCartId } from "../features/purchaseOrder/cartIdSlice";
 
 export default function Navbar() {
   const userData = useSelector(selectUser);
   const dispatch = useDispatch();
+  const { cart } = useSelector(selectCart);
+  const { cartId } = useSelector(selectCartId);
 
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -54,8 +59,12 @@ export default function Navbar() {
   }, [pathname]);
 
   const handleSignOut = async () => {
+    let items = [];
     dispatch(removeUser());
     dispatch(removeAddress());
+    dispatch(setCart({ items }));
+    dispatch(setCartId(""));
+    navigate(0);
   };
   return (
     <>

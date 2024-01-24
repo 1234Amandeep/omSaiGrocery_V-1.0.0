@@ -37,18 +37,18 @@ export default function CartProductCard({ item }) {
       dispatch(clearCart(id));
 
       //removing item from db_cart.
-      getDoc(doc(db, "cart", cartId)).then((docSnap) => {
+      getDoc(doc(db, "carts", cartId)).then((docSnap) => {
         if (docSnap.exists()) {
           let { items } = docSnap.data();
 
           items = items.filter((item) => item.product.id != id);
 
           if (items.length == 0) {
-            deleteDoc(doc(db, "cart", cartId)).then(() => {
+            deleteDoc(doc(db, "carts", cartId)).then(() => {
               // console.log("Their is no product left in the cart!");
             });
           } else if (items.length != 0) {
-            updateDoc(doc(db, "cart", cartId), {
+            updateDoc(doc(db, "carts", cartId), {
               items,
             }).then(() => {
               // console.log("One item removed from cart");
@@ -60,7 +60,7 @@ export default function CartProductCard({ item }) {
       dispatch(updateQnt({ id, qnt }));
 
       // updating quantity of db_cart item
-      getDoc(doc(db, "cart", cartId)).then((docSnap) => {
+      getDoc(doc(db, "carts", cartId)).then((docSnap) => {
         if (docSnap.exists()) {
           let { items } = docSnap.data();
 
@@ -71,7 +71,7 @@ export default function CartProductCard({ item }) {
             return item;
           });
 
-          updateDoc(doc(db, "cart", cartId), {
+          updateDoc(doc(db, "carts", cartId), {
             items,
           });
         }
@@ -83,6 +83,7 @@ export default function CartProductCard({ item }) {
 
   return (
     <>
+      {console.log("inside cartproductcard")}
       <div className=" cart-product-card p-2 d-flex flex-column  border shadow  bg-body rounded">
         <div className="product-details d-flex gap-3">
           <img

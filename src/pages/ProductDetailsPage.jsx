@@ -17,6 +17,7 @@ import {
   updateDoc,
   doc,
   getDoc,
+  setDoc,
 } from "firebase/firestore";
 import { setCartId, selectCartId } from "../features/purchaseOrder/cartIdSlice";
 
@@ -67,28 +68,32 @@ export default function ProductDetailsPage() {
         quantity
       );
 
-      getCountFromServer(collection(db, "cart")).then((c) => {
+      getCountFromServer(collection(db, "carts")).then((c) => {
         let count = c.data().count;
 
         if (count == 0) {
           console.log("inside if");
+          console.log("user id : ", user.id);
           //creating new collection "cart" and adding doc.
-          addDoc(collection(db, "cart"), {
+          setDoc(doc(db, "carts", user.id), {
             items: [
               {
                 product,
                 quantity,
               },
             ],
-          }).then((docRef) => {
-            console.log("doc added to cart! ", docRef.id);
-            dispatch(setCartId(docRef.id));
+          }).then((res) => {
+            console.log("response:", res);
+            console.log("doc added to cart! ", user.id);
+            dispatch(setCartId(user.id));
             dispatch(addToCart({ product, quantity }));
           });
         } else {
           // adding another item inside cart collection.
 
-          getDoc(doc(db, "cart", cartId)).then((docSnap) => {
+          console.log("cartid: ", cartId);
+
+          getDoc(doc(db, "carts", cartId)).then((docSnap) => {
             if (docSnap.exists()) {
               let { items } = docSnap.data();
               let ids = items.map((item) => {
@@ -136,7 +141,7 @@ export default function ProductDetailsPage() {
                     console.log("after, items.length: ", items.length);
 
                     dispatch(addNewQnt(items));
-                    updateDoc(doc(db, "cart", cartId), {
+                    updateDoc(doc(db, "carts", cartId), {
                       items,
                     }).then(() => {});
                     break;
@@ -157,7 +162,7 @@ export default function ProductDetailsPage() {
                 console.log("adding new product to cart");
                 dispatch(addToCart({ product, quantity }));
 
-                updateDoc(doc(db, "cart", cartId), {
+                updateDoc(doc(db, "carts", cartId), {
                   items,
                 }).then(() => {});
               }

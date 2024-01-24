@@ -32,14 +32,21 @@ import {
 import { collection } from "firebase/firestore";
 import { db } from "./firebase";
 import Checkout from "./pages/Checkout";
-import { setCartId } from "./features/purchaseOrder/cartIdSlice";
-import { setCart } from "./features/purchaseOrder/cartSlice";
+import { selectCartId, setCartId } from "./features/purchaseOrder/cartIdSlice";
+import { selectCart, setCart } from "./features/purchaseOrder/cartSlice";
 
 function App() {
   const dispatch = useDispatch();
   const userAddress = useSelector(selectAddress);
   const userData = useSelector(selectUser);
+  let userId = "xxxx";
 
+  const { cartId } = useSelector(selectCartId);
+  const { cart } = useSelector(selectCart);
+
+  if (userData?.user?.id) {
+    userId = userData.user.id;
+  }
   useEffect(() => {
     const colRef = collection(db, "addresses");
     if (userAddress.address) {
@@ -106,6 +113,20 @@ function App() {
       .catch((err) => {
         console.log(err.message);
       });
+
+    console.log(userId);
+    try {
+      getDoc(doc(db, "carts", userId)).then((docSnap) => {
+        if (docSnap.exists()) {
+          const { items } = docSnap.data();
+          dispatch(setCartId(docSnap.id));
+          dispatch(setCart(docSnap.data()));
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    // trying something...
   }, []);
 
   const router = createBrowserRouter([
