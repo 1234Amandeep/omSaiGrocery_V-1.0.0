@@ -38,7 +38,7 @@ The web application enables users to purchase their daily groceries which will b
 ## Installation
 
 ```bash
- npm run build
+ npm install
 ```
 
 ## Tech Stack
